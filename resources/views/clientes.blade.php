@@ -12,7 +12,7 @@
 <div>
     <h1>Clientes</h1>
 </div>
-<a href="{{ route('cliente.create') }}"><button>Crear Cliente</button></a>
+
 <div class="table-responsive">
 <table class="table -mt-2 table-bordered border-primary">
   <thead>
@@ -37,11 +37,18 @@
         <td>
             <a href="{{ route('cliente.delete', $cliente['id']) }}"> Eliminar</a>
             <a href="{{ route('cliente.view', $cliente['id']) }}"> Ver</a>
+            <a href="{{ route('cliente.servicios', $cliente['id']) }}">Ver Servicios</a>
+            
+
         </td>
     </tr>
 @endforeach
 
   </tbody>
 </table>
+
+</div>
+
+<a href="{{ route('cliente.create') }}"><button>Crear Cliente</button></a>
 </body>
 </html>

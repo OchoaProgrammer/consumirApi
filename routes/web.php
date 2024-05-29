@@ -11,3 +11,8 @@ Route::post('/cliente', [ClientesController::class, 'store'])->Name('cliente.sto
 Route::get('/cliente/{idClient}', [ClientesController::class, 'view'])->name('cliente.view');
 Route::post('/cliente/update', [ClientesController::class, 'update'])->name('cliente.update');
 Route::get('/cliente/destroy/{id}', [ClientesController::class, 'destroy'])->name('cliente.delete');
+Route::get('/cliente/{idCliente}/servicios', [ClientesController::class, 'verServiciosCliente'])->name('cliente.servicios');
+
+
+
+

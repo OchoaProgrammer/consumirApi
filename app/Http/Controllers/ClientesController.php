@@ -17,6 +17,7 @@ class ClientesController extends Controller
         $url = env('URL_SERVER_API', 'http://127.0.0.1');
         $response = Http::get($url.'/clients');
         $finish = $response->json();
+        //dd($finish);
         return view('clientes', compact('finish'));
 
     }
@@ -78,6 +79,7 @@ class ClientesController extends Controller
             'adress' => $request->adress,
 
         ]);
+       
         return redirect()->route('clientes.index');
     }
 
@@ -89,5 +91,14 @@ class ClientesController extends Controller
         $url = env('URL_SERVER_API', 'http://127.0.0.1');
         $response = Http::delete($url.'/clients/'.$idCliente);
         return redirect()->route('clientes.index'); 
+    }
+
+    public function verServiciosCliente($idCliente)
+    {
+        $url = env('URL_SERVER_API', 'http://127.0.0.1');
+        $response = Http::get($url.'/clients/'.$idCliente);
+    $cliente = $response->json();
+    $finish = $cliente['services'];
+    return view('verServiciosCliente', compact('cliente', 'finish'));
     }
 }
